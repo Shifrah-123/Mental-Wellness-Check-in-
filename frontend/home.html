@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WellMind — USIU Student Wellness</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       NAVBAR
+  ======================================================= -->
+  <nav class="hp-nav" id="mainNav">
+    <a class="hp-nav-logo" href="home.html">
+      <svg class="hp-nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="var(--gold)"/>
+        <path d="M18 27 C18 27 8 21 8 14.5 C8 11 10.8 8.5 14 8.5 C15.8 8.5 17.3 9.5 18 11 C18.7 9.5 20.2 8.5 22 8.5 C25.2 8.5 28 11 28 14.5 C28 21 18 27 18 27Z" fill="var(--navy)"/>
+      </svg>
+      <span class="hp-nav-logo-name">WellMind</span>
+    </a>
+
+    <ul class="hp-nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+      <li><a href="#testimonials">Stories</a></li>
+      <li><a href="index.html">Check-In</a></li>
+    </ul>
+
+    <div class="hp-nav-cta">
+      <a class="hp-nav-btn-outline" href="login.html">Sign In</a>
+      <a class="hp-nav-btn-fill" href="login.html#signup">Get Started</a>
+    </div>
+
+    <button class="hp-nav-hamburger" id="hamburger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="hp-nav-drawer" id="navDrawer">
+    <a href="#features" onclick="toggleDrawer()">Features</a>
+    <a href="#how-it-works" onclick="toggleDrawer()">How it Works</a>
+    <a href="#testimonials" onclick="toggleDrawer()">Stories</a>
+    <a href="index.html" onclick="toggleDrawer()">Check-In</a>
+    <a href="login.html" onclick="toggleDrawer()">Sign In</a>
+    <a href="login.html" style="color: var(--gold); font-weight:500;" onclick="toggleDrawer()">Get Started →</a>
+  </div>
+
+
+  <!-- ======================================================
+       HERO
+  ======================================================= -->
+  <section class="hp-hero" id="hero">
+    <div class="hp-hero-bg">
+      <div class="hp-hero-blob hp-hero-blob--1"></div>
+      <div class="hp-hero-blob hp-hero-blob--2"></div>
+    </div>
+
+    <div class="hp-hero-inner">
+      <!-- Left: copy -->
+      <div class="hp-hero-copy">
+        <div class="hp-hero-eyebrow">
+          <span class="hp-hero-eyebrow-dot"></span>
+          USIU–Africa · Student Wellness Centre
+        </div>
+        <h1 class="hp-hero-title">
+          Your mind<br>
+          deserves the<br>
+          <em>same care</em><br>
+          as your grades.
+        </h1>
+        <p class="hp-hero-desc">
+          WellMind is a safe, confidential space built for USIU students.
+          Track your mood, access resources, and connect with professional
+          counsellors — all in under 3 minutes.
+        </p>
+        <div class="hp-hero-actions">
+          <a class="hp-btn-primary" href="login.html">
+            Start My Journey &nbsp;→
+          </a>
+          <a class="hp-btn-ghost" href="index.html">
+            ✦ &nbsp;Take the Check-In
+          </a>
+        </div>
+        <div class="hp-hero-stats">
+          <div>
+            <div class="hp-hero-stat-num">3 min</div>
+            <div class="hp-hero-stat-label">Average check-in<br>time</div>
+          </div>
+          <div>
+            <div class="hp-hero-stat-num">100%</div>
+            <div class="hp-hero-stat-label">Confidential &<br>private</div>
+          </div>
+          <div>
+            <div class="hp-hero-stat-num">Free</div>
+            <div class="hp-hero-stat-label">For all registered<br>USIU students</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: image mosaic -->
+      <div class="hp-hero-visual">
+        <img
+          class="hp-hero-img-main"
+          src="https://images.stockcake.com/public/e/4/2/e425c7cc-a3fe-4bdc-9b6e-7de0a5c9c4e2_large/studying-together-happily-stockcake.jpg"
+          alt="Students studying together on campus"
+          loading="eager"
+          onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80'; this.onerror=null;"
+        />
+        <img
+          class="hp-hero-img-accent"
+          src="https://images.stockcake.com/public/3/b/0/3b0e6d53-e65c-4edb-ae04-f651ef1eb74a_large/calm-meditation-outdoors-stockcake.jpg"
+          alt="Student meditating peacefully outdoors"
+          loading="eager"
+          onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&q=80'; this.onerror=null;"
+        />
+        <div class="hp-hero-badge">
+          <span class="hp-hero-badge-icon">😊</span>
+          <span class="hp-hero-badge-val">+38%</span>
+          <span class="hp-hero-badge-lbl">Students feel better<br>after check-in</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hp-scroll-hint" aria-hidden="true">
+      <div class="hp-scroll-mouse"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       TRUST STRIP
+  ======================================================= -->
+  <div class="hp-trust">
+    <span class="hp-trust-label">Trusted & compliant</span>
+    <div class="hp-trust-badges">
+      <div class="hp-trust-badge"><span class="hp-trust-badge-icon">🔒</span> Data Encrypted</div>
+      <div class="hp-trust-badge"><span class="hp-trust-badge-icon">🛡️</span> HIPAA Aligned</div>
+      <div class="hp-trust-badge"><span class="hp-trust-badge-icon">🎓</span> USIU Approved</div>
+      <div class="hp-trust-badge"><span class="hp-trust-badge-icon">👁️‍🗨️</span> Zero Data Sharing</div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================
+       FEATURES
+  ======================================================= -->
+  <section class="hp-features" id="features">
+    <div class="hp-section-inner">
+      <p class="hp-section-eyebrow hp-reveal">What we offer</p>
+      <h2 class="hp-section-title hp-reveal hp-reveal-delay-1">Everything you need<br>to thrive at university.</h2>
+      <p class="hp-section-desc hp-reveal hp-reveal-delay-2">
+        WellMind brings together mood tracking, expert resources, and real human support
+        — designed specifically for the USIU student experience.
+      </p>
+
+      <div class="hp-features-grid">
+
+        <div class="hp-feature-card hp-reveal">
+          <div class="hp-feature-icon" style="background: rgba(10,34,64,0.07);">🧠</div>
+          <h3 class="hp-feature-title">Mood Check-In</h3>
+          <p class="hp-feature-desc">A 3-minute guided check-in assesses your emotional state, stress, sleep, and social wellbeing — giving you a personal wellness score each time.</p>
+        </div>
+
+        <div class="hp-feature-card hp-reveal hp-reveal-delay-1">
+          <div class="hp-feature-icon" style="background: rgba(212,160,23,0.1);">📈</div>
+          <h3 class="hp-feature-title">Progress Tracking</h3>
+          <p class="hp-feature-desc">See your wellness trends over time. Celebrate good weeks and spot patterns before they become problems — all in a private dashboard.</p>
+        </div>
+
+        <div class="hp-feature-card hp-reveal hp-reveal-delay-2">
+          <div class="hp-feature-icon" style="background: rgba(78,205,196,0.1);">💬</div>
+          <h3 class="hp-feature-title">Counsellor Connect</h3>
+          <p class="hp-feature-desc">Book a confidential session with a USIU-trained counsellor directly from the app. Walk-in and virtual options available every week.</p>
+        </div>
+
+        <div class="hp-feature-card hp-reveal hp-reveal-delay-1">
+          <div class="hp-feature-icon" style="background: rgba(83,74,183,0.08);">🌙</div>
+          <h3 class="hp-feature-title">Sleep & Stress Tools</h3>
+          <p class="hp-feature-desc">Guided breathing exercises, sleep hygiene tips, and personalised stress-management strategies tailored to your check-in responses.</p>
+        </div>
+
+        <div class="hp-feature-card hp-reveal hp-reveal-delay-2">
+          <div class="hp-feature-icon" style="background: rgba(153,53,86,0.08);">🤝</div>
+          <h3 class="hp-feature-title">Peer Support Groups</h3>
+          <p class="hp-feature-desc">Connect with fellow USIU students in facilitated peer circles. Share experiences, build friendships, and reduce the weight of loneliness.</p>
+        </div>
+
+        <div class="hp-feature-card hp-reveal hp-reveal-delay-3">
+          <div class="hp-feature-icon" style="background: rgba(15,110,86,0.08);">📚</div>
+          <h3 class="hp-feature-title">Academic Integration</h3>
+          <p class="hp-feature-desc">Linked to the Academic Skills Centre — get study coaching, exam prep, and time management support when stress is affecting your performance.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       HOW IT WORKS
+  ======================================================= -->
+  <section class="hp-how" id="how-it-works">
+    <div class="hp-how-inner">
+
+      <div>
+        <p class="hp-section-eyebrow hp-reveal">How it works</p>
+        <h2 class="hp-section-title hp-reveal hp-reveal-delay-1">Simple steps,<br>real impact.</h2>
+        <p class="hp-section-desc hp-reveal hp-reveal-delay-2">
+          No long forms, no stigma, no judgement. WellMind meets you exactly where you are.
+        </p>
+
+        <div class="hp-steps">
+          <div class="hp-step hp-reveal">
+            <div class="hp-step-num">1</div>
+            <div class="hp-step-body">
+              <div class="hp-step-title">Create your account</div>
+              <div class="hp-step-desc">Sign up with your USIU email or Google in under 60 seconds. Completely free for all registered students.</div>
+            </div>
+          </div>
+          <div class="hp-step hp-reveal hp-reveal-delay-1">
+            <div class="hp-step-num">2</div>
+            <div class="hp-step-body">
+              <div class="hp-step-title">Do your first check-in</div>
+              <div class="hp-step-desc">Answer 6 simple questions about your mood, stress, sleep, and social life. Takes about 3 minutes.</div>
+            </div>
+          </div>
+          <div class="hp-step hp-reveal hp-reveal-delay-2">
+            <div class="hp-step-num">3</div>
+            <div class="hp-step-body">
+              <div class="hp-step-title">Get your wellness score</div>
+              <div class="hp-step-desc">Receive a personalised score and tailored insights — what's going well and where you might need a little support.</div>
+            </div>
+          </div>
+          <div class="hp-step hp-reveal hp-reveal-delay-3">
+            <div class="hp-step-num">4</div>
+            <div class="hp-step-body">
+              <div class="hp-step-title">Access the right support</div>
+              <div class="hp-step-desc">From self-help resources to booking a counsellor — WellMind guides you to exactly what you need, when you need it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hp-how-visual hp-reveal">
+        <img
+          class="hp-how-img-main"
+          src="https://images.stockcake.com/public/c/7/7/c77a3b2c-3e43-4a1c-97f6-1b3b0d6c0cbe_large/healing-through-conversation-stockcake.jpg"
+          alt="Counselling session between two people"
+          loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=80'; this.onerror=null;"
+        />
+        <div class="hp-how-overlay">
+          <div class="hp-how-overlay-title">✦ Your wellness at a glance</div>
+          <div class="hp-how-progress-list">
+            <div class="hp-how-progress-row">
+              <span class="hp-how-progress-label">Mood</span>
+              <div class="hp-how-progress-track"><div class="hp-how-progress-fill" style="width:80%"></div></div>
+            </div>
+            <div class="hp-how-progress-row">
+              <span class="hp-how-progress-label">Sleep</span>
+              <div class="hp-how-progress-track"><div class="hp-how-progress-fill" style="width:65%"></div></div>
+            </div>
+            <div class="hp-how-progress-row">
+              <span class="hp-how-progress-label">Stress</span>
+              <div class="hp-how-progress-track"><div class="hp-how-progress-fill" style="width:45%; background: #e67e22;"></div></div>
+            </div>
+            <div class="hp-how-progress-row">
+              <span class="hp-how-progress-label">Social</span>
+              <div class="hp-how-progress-track"><div class="hp-how-progress-fill" style="width:72%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       TESTIMONIALS
+  ======================================================= -->
+  <section class="hp-testimonials" id="testimonials">
+    <div class="hp-section-inner">
+      <p class="hp-section-eyebrow hp-reveal">Student stories</p>
+      <h2 class="hp-section-title hp-reveal hp-reveal-delay-1">Real students,<br>real change.</h2>
+      <p class="hp-section-desc hp-reveal hp-reveal-delay-2" style="margin-bottom:2.5rem;">
+        Thousands of USIU students have used WellMind to navigate university life with more clarity, calm, and connection.
+      </p>
+
+      <div class="hp-testimonials-grid">
+
+        <div class="hp-testimonial-card hp-reveal">
+          <div class="hp-testimonial-stars">★★★★★</div>
+          <p class="hp-testimonial-text">"I didn't realise how burnt out I was until I did my first check-in. WellMind gave me language for what I was feeling, and connected me with a counsellor the same week."</p>
+          <div class="hp-testimonial-author">
+            <div class="hp-testimonial-avatar" style="background:rgba(10,34,64,0.08);">👩🏾</div>
+            <div>
+              <div class="hp-testimonial-name">Amina K.</div>
+              <div class="hp-testimonial-role">3rd Year · Business Administration</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hp-testimonial-card hp-reveal hp-reveal-delay-1">
+          <div class="hp-testimonial-stars">★★★★★</div>
+          <p class="hp-testimonial-text">"As an international student, adjusting to campus life was overwhelming. WellMind's peer support group helped me feel like I belonged. It genuinely changed my semester."</p>
+          <div class="hp-testimonial-author">
+            <div class="hp-testimonial-avatar" style="background:rgba(212,160,23,0.1);">👨🏽</div>
+            <div>
+              <div class="hp-testimonial-name">David O.</div>
+              <div class="hp-testimonial-role">2nd Year · International Relations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hp-testimonial-card hp-reveal hp-reveal-delay-2">
+          <div class="hp-testimonial-stars">★★★★★</div>
+          <p class="hp-testimonial-text">"The academic integration feature was a lifesaver during finals. I went from barely sleeping and failing to actually managing my time and passing with a B+. Thank you WellMind."</p>
+          <div class="hp-testimonial-author">
+            <div class="hp-testimonial-avatar" style="background:rgba(78,205,196,0.1);">👩🏿</div>
+            <div>
+              <div class="hp-testimonial-name">Priya M.</div>
+              <div class="hp-testimonial-role">4th Year · Computer Science</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       CTA BANNER
+  ======================================================= -->
+  <section class="hp-cta">
+    <div class="hp-cta-inner">
+      <h2 class="hp-cta-title hp-reveal">
+        Your wellbeing<br>
+        is not a <em>luxury.</em><br>
+        It's a priority.
+      </h2>
+      <p class="hp-cta-desc hp-reveal hp-reveal-delay-1">
+        Join thousands of USIU students already using WellMind. Free, confidential, and built just for you.
+        It takes 3 minutes — and it could change everything.
+      </p>
+      <div class="hp-cta-actions hp-reveal hp-reveal-delay-2">
+        <a class="hp-btn-primary" href="login.html">Create Free Account →</a>
+        <a class="hp-btn-ghost" href="index.html">✦ Take the Check-In First</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FOOTER
+  ======================================================= -->
+  <footer class="hp-footer">
+    <div class="hp-footer-inner">
+
+      <div>
+        <a class="hp-nav-logo" href="home.html" style="margin-bottom:0.75rem; display:flex;">
+          <svg style="width:28px;height:28px;flex-shrink:0;" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="var(--gold)"/>
+            <path d="M18 27 C18 27 8 21 8 14.5 C8 11 10.8 8.5 14 8.5 C15.8 8.5 17.3 9.5 18 11 C18.7 9.5 20.2 8.5 22 8.5 C25.2 8.5 28 11 28 14.5 C28 21 18 27 18 27Z" fill="#060f1a"/>
+          </svg>
+          <span style="font-family:'Playfair Display',serif;font-size:17px;color:var(--white);margin-left:8px;">WellMind</span>
+        </a>
+        <p class="hp-footer-brand-desc">A confidential mental wellness platform for USIU–Africa students. Built with care by the Student Wellness Centre.</p>
+      </div>
+
+      <div>
+        <div class="hp-footer-col-title">Platform</div>
+        <ul class="hp-footer-links">
+          <li><a href="index.html">Wellness Check-In</a></li>
+          <li><a href="login.html">My Dashboard</a></li>
+          <li><a href="#">Counsellor Booking</a></li>
+          <li><a href="#">Peer Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="hp-footer-col-title">Resources</div>
+        <ul class="hp-footer-links">
+          <li><a href="#">Crisis Support</a></li>
+          <li><a href="#">Sleep & Stress</a></li>
+          <li><a href="#">Academic Help</a></li>
+          <li><a href="#">Financial Aid</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="hp-footer-col-title">USIU</div>
+        <ul class="hp-footer-links">
+          <li><a href="https://usiu.ac.ke" target="_blank" rel="noopener">USIU Website</a></li>
+          <li><a href="#">Student Services</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="hp-footer-bottom">
+      <span class="hp-footer-copy">© 2025 WellMind · USIU–Africa Student Wellness Centre. All rights reserved.</span>
+      <ul class="hp-footer-bottom-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">HIPAA</a></li>
+      </ul>
+    </div>
+  </footer>
+
+
+  <script src="home.js"></script>
+</body>
+</html>

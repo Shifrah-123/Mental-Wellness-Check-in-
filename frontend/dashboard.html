@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — WellMind</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="db-page">
+
+  <!-- ======================================================
+       SIDEBAR
+  ======================================================= -->
+  <aside class="db-sidebar" id="sidebar">
+
+    <a class="db-sidebar-logo" href="home.html">
+      <svg class="db-sidebar-logo-icon" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="18" fill="var(--gold)"/>
+        <path d="M18 27C18 27 8 21 8 14.5C8 11 10.8 8.5 14 8.5C15.8 8.5 17.3 9.5 18 11C18.7 9.5 20.2 8.5 22 8.5C25.2 8.5 28 11 28 14.5C28 21 18 27 18 27Z" fill="var(--navy)"/>
+      </svg>
+      <span class="db-sidebar-logo-name">WellMind</span>
+    </a>
+
+    <nav class="db-nav" aria-label="Main navigation">
+
+      <div class="db-nav-section-label">Main</div>
+
+      <a class="db-nav-link active" href="dashboard.html">
+        <span class="db-nav-icon">🏠</span> Dashboard
+      </a>
+      <a class="db-nav-link" href="index.html">
+        <span class="db-nav-icon">✦</span> Check-In
+        <span class="db-nav-badge">New</span>
+      </a>
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">📈</span> My Progress
+      </a>
+
+      <div class="db-nav-section-label">Support</div>
+
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">💬</span> Counsellor
+      </a>
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">🤝</span> Peer Groups
+      </a>
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">📚</span> Resources
+      </a>
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">🚨</span> Crisis Help
+      </a>
+
+      <div class="db-nav-section-label">Account</div>
+
+      <a class="db-nav-link" href="#">
+        <span class="db-nav-icon">⚙️</span> Settings
+      </a>
+
+    </nav>
+
+    <div class="db-sidebar-footer">
+      <div class="db-sidebar-user">
+        <div class="db-sidebar-avatar">👩🏾</div>
+        <div>
+          <div class="db-sidebar-user-name">Amina Kariuki</div>
+          <div class="db-sidebar-user-role">3rd Year · Bus. Admin</div>
+        </div>
+      </div>
+      <a class="db-nav-link" href="login.html" style="color:rgba(255,255,255,0.4);">
+        <span class="db-nav-icon">🚪</span> Sign Out
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="db-sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+
+  <!-- ======================================================
+       MAIN
+  ======================================================= -->
+  <div class="db-main">
+
+    <!-- Top bar -->
+    <header class="db-topbar">
+      <div class="db-topbar-left">
+        <button class="db-mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+        <div>
+          <div class="db-topbar-greeting" id="topGreeting">Good morning, Amina 👋</div>
+          <div class="db-topbar-date" id="topDate">Sunday, 14 June 2025</div>
+        </div>
+      </div>
+      <div class="db-topbar-right">
+        <a class="db-topbar-icon-btn" href="#" title="Notifications">
+          🔔
+          <span class="db-notif-dot"></span>
+        </a>
+        <a class="db-topbar-icon-btn" href="#" title="Profile">👤</a>
+        <a class="db-topbar-checkin-btn" href="index.html">
+          ✦ <span>Start Check-In</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="db-content">
+
+      <!-- ---- Welcome banner ---- -->
+      <div class="db-welcome">
+        <div class="db-welcome-left">
+          <div class="db-welcome-eyebrow">✦ Weekly Snapshot</div>
+          <h1 class="db-welcome-title">You're making<br>real progress, Amina.</h1>
+          <p class="db-welcome-sub">Your wellness score improved by 12 points this week. Keep checking in — consistency is the key to lasting change.</p>
+        </div>
+        <div class="db-welcome-right">
+          <!-- Animated score ring -->
+          <div class="db-welcome-score-ring">
+            <svg viewBox="0 0 90 90">
+              <defs>
+                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#d4a017"/>
+                  <stop offset="100%" stop-color="#f0c040"/>
+                </linearGradient>
+              </defs>
+              <circle class="db-score-track" cx="45" cy="45" r="40"/>
+              <circle class="db-score-fill" id="scoreRing" cx="45" cy="45" r="40"
+                stroke="url(#ringGrad)"/>
+            </svg>
+            <div class="db-score-center">
+              <span class="db-score-val" id="scoreVal">0</span>
+              <span class="db-score-lbl">Score</span>
+            </div>
+          </div>
+          <div class="db-welcome-streak">🔥 5-day streak</div>
+        </div>
+      </div>
+
+      <!-- ---- Quick stats ---- -->
+      <div class="db-stats-row">
+
+        <div class="db-stat-card">
+          <div class="db-stat-icon" style="background:rgba(10,34,64,0.07);">😊</div>
+          <div>
+            <div class="db-stat-val">Good</div>
+            <div class="db-stat-label">Current Mood</div>
+            <div class="db-stat-delta db-stat-delta--up">↑ Improved since Monday</div>
+          </div>
+        </div>
+
+        <div class="db-stat-card">
+          <div class="db-stat-icon" style="background:rgba(83,74,183,0.08);">🌙</div>
+          <div>
+            <div class="db-stat-val">6.5h</div>
+            <div class="db-stat-label">Avg. Sleep</div>
+            <div class="db-stat-delta db-stat-delta--down">↓ Below 7h target</div>
+          </div>
+        </div>
+
+        <div class="db-stat-card">
+          <div class="db-stat-icon" style="background:rgba(212,160,23,0.1);">🧘</div>
+          <div>
+            <div class="db-stat-val">Moderate</div>
+            <div class="db-stat-label">Stress Level</div>
+            <div class="db-stat-delta db-stat-delta--up">↑ Down from High</div>
+          </div>
+        </div>
+
+        <div class="db-stat-card">
+          <div class="db-stat-icon" style="background:rgba(15,110,86,0.08);">📅</div>
+          <div>
+            <div class="db-stat-val">5</div>
+            <div class="db-stat-label">Check-Ins</div>
+            <div class="db-stat-delta db-stat-delta--flat">This month</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ---- CTA if not checked in today ---- -->
+      <div class="db-checkin-cta" id="checkinCta">
+        <div>
+          <div class="db-checkin-cta-title">You haven't checked in today</div>
+          <div class="db-checkin-cta-sub">It takes 3 minutes and keeps your score up to date.</div>
+        </div>
+        <a class="db-checkin-cta-btn" href="index.html">
+          Start Today's Check-In →
+        </a>
+      </div>
+
+      <!-- ---- Row 1: Mood chart + Check-in history ---- -->
+      <div class="db-grid-2">
+
+        <!-- Mood chart -->
+        <div class="db-card">
+          <div class="db-card-header">
+            <span class="db-card-title">Mood Trend — Last 7 Days</span>
+            <a class="db-card-action" href="#">View all →</a>
+          </div>
+          <div class="db-chart-labels">
+            <span>Mon</span><span>Tue</span><span>Wed</span>
+            <span>Thu</span><span>Fri</span><span>Sat</span><span>Today</span>
+          </div>
+          <div class="db-chart-wrap" style="padding-top:0;">
+            <svg class="db-chart-svg" viewBox="0 0 420 110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#d4a017" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#d4a017" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Grid lines -->
+              <line x1="0" y1="22"  x2="420" y2="22"  stroke="var(--border)" stroke-width="1"/>
+              <line x1="0" y1="55"  x2="420" y2="55"  stroke="var(--border)" stroke-width="1"/>
+              <line x1="0" y1="88"  x2="420" y2="88"  stroke="var(--border)" stroke-width="1"/>
+              <!-- Area fill: Mon=55 Tue=40 Wed=70 Thu=65 Fri=45 Sat=35 Sun=28 (lower=better mood) -->
+              <path class="db-chart-area"
+                d="M10,55 L80,40 L150,22 L220,28 L290,45 L360,38 L410,28 L410,110 L10,110 Z"/>
+              <!-- Line -->
+              <polyline class="db-chart-line"
+                points="10,55 80,40 150,22 220,28 290,45 360,38 410,28"/>
+              <!-- Dots -->
+              <circle class="db-chart-dot" cx="10"  cy="55" r="4"/>
+              <circle class="db-chart-dot" cx="80"  cy="40" r="4"/>
+              <circle class="db-chart-dot" cx="150" cy="22" r="4"/>
+              <circle class="db-chart-dot" cx="220" cy="28" r="4"/>
+              <circle class="db-chart-dot" cx="290" cy="45" r="4"/>
+              <circle class="db-chart-dot" cx="360" cy="38" r="4"/>
+              <circle class="db-chart-dot db-chart-dot--today" cx="410" cy="28" r="5"/>
+            </svg>
+          </div>
+          <!-- Y-axis labels -->
+          <div style="display:flex;justify-content:space-between;padding:0 1.375rem 1rem;font-size:10.5px;color:var(--text-hint);">
+            <span>😢 Low</span><span>😐 Neutral</span><span>😊 Great</span>
+          </div>
+        </div>
+
+        <!-- Check-in history -->
+        <div class="db-card">
+          <div class="db-card-header">
+            <span class="db-card-title">Recent Check-Ins</span>
+            <a class="db-card-action" href="#">All →</a>
+          </div>
+          <div class="db-checkin-list">
+
+            <div class="db-checkin-item">
+              <div class="db-checkin-dot" style="background:#27ae60;"></div>
+              <div class="db-checkin-date">Yesterday, Sat 13 Jun</div>
+              <span class="db-checkin-mood">😊</span>
+              <span class="db-checkin-score">78</span>
+              <span class="db-checkin-badge" style="background:rgba(39,174,96,0.1);color:#27ae60;">Good</span>
+            </div>
+
+            <div class="db-checkin-item">
+              <div class="db-checkin-dot" style="background:#f39c12;"></div>
+              <div class="db-checkin-date">Fri 12 Jun</div>
+              <span class="db-checkin-mood">😐</span>
+              <span class="db-checkin-score">61</span>
+              <span class="db-checkin-badge" style="background:rgba(243,156,18,0.1);color:#d4870b;">Okay</span>
+            </div>
+
+            <div class="db-checkin-item">
+              <div class="db-checkin-dot" style="background:#e74c3c;"></div>
+              <div class="db-checkin-date">Thu 11 Jun</div>
+              <span class="db-checkin-mood">😔</span>
+              <span class="db-checkin-score">44</span>
+              <span class="db-checkin-badge" style="background:rgba(231,76,60,0.1);color:#c0392b;">Low</span>
+            </div>
+
+            <div class="db-checkin-item">
+              <div class="db-checkin-dot" style="background:#27ae60;"></div>
+              <div class="db-checkin-date">Wed 10 Jun</div>
+              <span class="db-checkin-mood">😊</span>
+              <span class="db-checkin-score">82</span>
+              <span class="db-checkin-badge" style="background:rgba(39,174,96,0.1);color:#27ae60;">Great</span>
+            </div>
+
+            <div class="db-checkin-item">
+              <div class="db-checkin-dot" style="background:#f39c12;"></div>
+              <div class="db-checkin-date">Mon 9 Jun</div>
+              <span class="db-checkin-mood">😐</span>
+              <span class="db-checkin-score">58</span>
+              <span class="db-checkin-badge" style="background:rgba(243,156,18,0.1);color:#d4870b;">Okay</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ---- Row 2: Wellness breakdown + Appointments ---- -->
+      <div class="db-grid-2-wide">
+
+        <!-- Breakdown -->
+        <div class="db-card">
+          <div class="db-card-header">
+            <span class="db-card-title">Wellness Breakdown</span>
+            <a class="db-card-action" href="index.html">Re-check →</a>
+          </div>
+          <div class="db-breakdown">
+            <div class="db-breakdown-row">
+              <span class="db-breakdown-label">Mood</span>
+              <div class="db-breakdown-track">
+                <div class="db-breakdown-fill" id="bar-mood"
+                  style="width:0%;background:var(--gold);"></div>
+              </div>
+              <span class="db-breakdown-val">80%</span>
+            </div>
+            <div class="db-breakdown-row">
+              <span class="db-breakdown-label">Sleep</span>
+              <div class="db-breakdown-track">
+                <div class="db-breakdown-fill" id="bar-sleep"
+                  style="width:0%;background:#534AB7;"></div>
+              </div>
+              <span class="db-breakdown-val">65%</span>
+            </div>
+            <div class="db-breakdown-row">
+              <span class="db-breakdown-label">Stress</span>
+              <div class="db-breakdown-track">
+                <div class="db-breakdown-fill" id="bar-stress"
+                  style="width:0%;background:#e67e22;"></div>
+              </div>
+              <span class="db-breakdown-val">50%</span>
+            </div>
+            <div class="db-breakdown-row">
+              <span class="db-breakdown-label">Social</span>
+              <div class="db-breakdown-track">
+                <div class="db-breakdown-fill" id="bar-social"
+                  style="width:0%;background:#0F6E56;"></div>
+              </div>
+              <span class="db-breakdown-val">72%</span>
+            </div>
+          </div>
+
+          <!-- Tips based on breakdown -->
+          <div style="padding: 0 1.375rem 1.25rem;">
+            <div style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:0.75rem;">💡 Personalised insight</div>
+            <div style="background:rgba(10,34,64,0.04);border:1px solid var(--border);border-left:3px solid var(--navy);border-radius:var(--radius-md);padding:0.875rem 1rem;font-size:13.5px;color:var(--text-muted);line-height:1.65;font-weight:300;">
+              Your sleep is below average this week. Try limiting screen time after 10 PM and keeping a consistent wake time — even on weekends.
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointments -->
+        <div class="db-card">
+          <div class="db-card-header">
+            <span class="db-card-title">Upcoming Appointments</span>
+            <a class="db-card-action" href="#">Book →</a>
+          </div>
+          <div class="db-appt-list">
+
+            <div class="db-appt-card">
+              <div class="db-appt-date-box">
+                <div class="db-appt-day">18</div>
+                <div class="db-appt-month">Jun</div>
+              </div>
+              <div class="db-appt-info">
+                <div class="db-appt-title">Counselling Session</div>
+                <div class="db-appt-meta">Dr. Wanjiku Mwangi · 2:00 PM · Virtual</div>
+              </div>
+              <button class="db-appt-join-btn">Join →</button>
+            </div>
+
+            <div class="db-appt-card">
+              <div class="db-appt-date-box">
+                <div class="db-appt-day">25</div>
+                <div class="db-appt-month">Jun</div>
+              </div>
+              <div class="db-appt-info">
+                <div class="db-appt-title">Mindfulness Group</div>
+                <div class="db-appt-meta">Main Hall · 5:00 PM · In-person</div>
+              </div>
+              <button class="db-appt-join-btn">RSVP</button>
+            </div>
+
+            <div style="text-align:center;padding:0.75rem 0 0.25rem;">
+              <a class="db-book-btn" href="#">+ Book a Counsellor</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ---- Row 3: Recommended resources ---- -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <span class="db-card-title">Recommended for You</span>
+          <a class="db-card-action" href="#">Browse Library →</a>
+        </div>
+        <div class="db-tips-list">
+
+          <a class="db-tip-item" href="#">
+            <span class="db-tip-icon">🌙</span>
+            <div>
+              <div class="db-tip-title">5 Sleep Habits That Actually Work for Students</div>
+              <div class="db-tip-desc">Practical, science-backed strategies to improve your sleep quality this week — no apps needed.</div>
+            </div>
+          </a>
+
+          <a class="db-tip-item" href="#">
+            <span class="db-tip-icon">🧘</span>
+            <div>
+              <div class="db-tip-title">4-7-8 Breathing: A 2-Minute Stress Reset</div>
+              <div class="db-tip-desc">A guided breathing technique you can do anywhere — in class, before an exam, or in your room.</div>
+            </div>
+          </a>
+
+          <a class="db-tip-item" href="#">
+            <span class="db-tip-icon">📚</span>
+            <div>
+              <div class="db-tip-title">Managing Academic Pressure Without Burning Out</div>
+              <div class="db-tip-desc">From the Academic Skills Centre — time management, prioritisation, and knowing when to ask for help.</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /db-main -->
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
