@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USIU Mental Wellness Check-In</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="wc-header">
+    <div class="wc-logo-row">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="32" fill="var(--gold)"/>
+        <path d="M32 48C32 48 14 38 14 26C14 19.5 19.5 14.5 26 14.5C29.2 14.5 32 16.5 32 20C32 16.5 34.8 14.5 38 14.5C44.5 14.5 50 19.5 50 26C50 38 32 48 32 48Z" fill="var(--navy)"/>
+      </svg>
+      <span class="wc-logo-name">WellMind</span>
+    </div>
+    <h1 class="wc-hero-title">How are you feeling<br>today?</h1>
+    <p class="wc-hero-sub">A confidential check-in for USIU students. Takes about 3 minutes.</p>
+  </header>
+
+  <main class="wc-body">
+
+    <div class="wc-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="wc-progress-bar">
+        <div class="wc-progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="wc-progress-text" id="progressText" aria-live="polite">Step 1 of 6</div>
+    </div>
+
+    <!-- STEP 1: MOOD -->
+    <section class="wc-step active" id="step1" aria-labelledby="q1">
+      <div class="wc-confidential"><span class="wc-confidential-dot"></span> Confidential</div>
+      <div class="wc-section-label">Emotional state</div>
+      <h2 class="wc-question" id="q1">How would you describe your mood right now?</h2>
+      <p class="wc-question-desc">Select the option that best reflects how you feel at this moment.</p>
+      <div class="wc-mood-grid" role="group" aria-label="Mood options">
+        <button class="wc-mood-btn" data-val="1" onclick="selectMood(1)" aria-label="Very low mood">
+          <span class="wc-mood-emoji" aria-hidden="true">😢</span>
+          <span class="wc-mood-label">Very low</span>
+        </button>
+        <button class="wc-mood-btn" data-val="2" onclick="selectMood(2)" aria-label="Low mood">
+          <span class="wc-mood-emoji" aria-hidden="true">😔</span>
+          <span class="wc-mood-label">Low</span>
+        </button>
+        <button class="wc-mood-btn" data-val="3" onclick="selectMood(3)" aria-label="Neutral mood">
+          <span class="wc-mood-emoji" aria-hidden="true">😐</span>
+          <span class="wc-mood-label">Neutral</span>
+        </button>
+        <button class="wc-mood-btn" data-val="4" onclick="selectMood(4)" aria-label="Good mood">
+          <span class="wc-mood-emoji" aria-hidden="true">🙂</span>
+          <span class="wc-mood-label">Good</span>
+        </button>
+        <button class="wc-mood-btn" data-val="5" onclick="selectMood(5)" aria-label="Great mood">
+          <span class="wc-mood-emoji" aria-hidden="true">😊</span>
+          <span class="wc-mood-label">Great</span>
+        </button>
+      </div>
+      <div class="wc-nav-row">
+        <div></div>
+        <button class="wc-btn-next" id="btn1" disabled onclick="goToStep(2)">Continue <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- STEP 2: STRESS -->
+    <section class="wc-step" id="step2" aria-labelledby="q2">
+      <div class="wc-section-label">Academic & life stress</div>
+      <h2 class="wc-question" id="q2">How stressed have you been over the past week?</h2>
+      <p class="wc-question-desc">Consider academic pressure, personal matters, and life in general.</p>
+      <div class="wc-scale-row" id="stressScale" role="group" aria-label="Stress level 1 to 5">
+        <button class="wc-scale-btn" data-val="1" onclick="selectScale('stress',1)">1</button>
+        <button class="wc-scale-btn" data-val="2" onclick="selectScale('stress',2)">2</button>
+        <button class="wc-scale-btn" data-val="3" onclick="selectScale('stress',3)">3</button>
+        <button class="wc-scale-btn" data-val="4" onclick="selectScale('stress',4)">4</button>
+        <button class="wc-scale-btn" data-val="5" onclick="selectScale('stress',5)">5</button>
+      </div>
+      <div class="wc-scale-labels" aria-hidden="true">
+        <span>Not at all stressed</span>
+        <span>Extremely stressed</span>
+      </div>
+      <div class="wc-nav-row">
+        <button class="wc-btn-back" onclick="goToStep(1)">← Back</button>
+        <button class="wc-btn-next" id="btn2" disabled onclick="goToStep(3)">Continue <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- STEP 3: SLEEP -->
+    <section class="wc-step" id="step3" aria-labelledby="q3">
+      <div class="wc-section-label">Rest & recovery</div>
+      <h2 class="wc-question" id="q3">How has your sleep been lately?</h2>
+      <p class="wc-question-desc">Quality sleep is essential for mental health and academic performance.</p>
+      <div class="wc-checkbox-list" id="sleepList" role="group" aria-label="Sleep quality options">
+        <div class="wc-checkbox-item" role="radio" tabindex="0" onclick="selectSingle('sleep', this, 5)" onkeydown="keySelect(event, 'sleep', this, 5)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Good — 7–9 hours most nights, waking refreshed</span>
+        </div>
+        <div class="wc-checkbox-item" role="radio" tabindex="0" onclick="selectSingle('sleep', this, 4)" onkeydown="keySelect(event, 'sleep', this, 4)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Decent — sleeping but not always enough</span>
+        </div>
+        <div class="wc-checkbox-item" role="radio" tabindex="0" onclick="selectSingle('sleep', this, 3)" onkeydown="keySelect(event, 'sleep', this, 3)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Inconsistent — some nights good, others bad</span>
+        </div>
+        <div class="wc-checkbox-item" role="radio" tabindex="0" onclick="selectSingle('sleep', this, 2)" onkeydown="keySelect(event, 'sleep', this, 2)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Poor — struggling to fall or stay asleep</span>
+        </div>
+        <div class="wc-checkbox-item" role="radio" tabindex="0" onclick="selectSingle('sleep', this, 1)" onkeydown="keySelect(event, 'sleep', this, 1)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Very poor — barely sleeping most nights</span>
+        </div>
+      </div>
+      <div class="wc-nav-row">
+        <button class="wc-btn-back" onclick="goToStep(2)">← Back</button>
+        <button class="wc-btn-next" id="btn3" disabled onclick="goToStep(4)">Continue <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- STEP 4: SOCIAL -->
+    <section class="wc-step" id="step4" aria-labelledby="q4">
+      <div class="wc-section-label">Social wellbeing</div>
+      <h2 class="wc-question" id="q4">What's your social life feeling like on campus?</h2>
+      <p class="wc-question-desc">Feeling connected is a key part of overall wellness. Select all that apply.</p>
+      <div class="wc-checkbox-list" role="group" aria-label="Social wellbeing checkboxes">
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">I have people I can talk to when things get tough</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">I often feel lonely or isolated on campus</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">I'm involved in at least one club or group activity</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">I find it hard to make or maintain friendships</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">I feel like I belong at USIU</span>
+        </div>
+      </div>
+      <div class="wc-nav-row">
+        <button class="wc-btn-back" onclick="goToStep(3)">← Back</button>
+        <button class="wc-btn-next" onclick="goToStep(5)">Continue <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- STEP 5: CONCERNS -->
+    <section class="wc-step" id="step5" aria-labelledby="q5">
+      <div class="wc-section-label">What's weighing on you</div>
+      <h2 class="wc-question" id="q5">Are any of these areas a concern right now?</h2>
+      <p class="wc-question-desc">Select any areas where you'd like support or guidance. All responses are confidential.</p>
+      <div class="wc-checkbox-list" role="group" aria-label="Concern areas">
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="academic" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Academic pressure or performance anxiety</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="financial" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Financial stress or uncertainty</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="relationship" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Relationship or family difficulties</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="anxiety" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Anxiety or persistent worry</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="depression" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Sadness, low motivation, or feeling hopeless</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="identity" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Identity, purpose, or cultural adjustment</span>
+        </div>
+        <div class="wc-checkbox-item" role="checkbox" aria-checked="false" tabindex="0" data-concern="crisis" onclick="toggleMulti(this)" onkeydown="keyToggle(event, this)">
+          <div class="wc-check-box" aria-hidden="true"></div>
+          <span class="wc-checkbox-label">Thoughts of harming myself or others</span>
+        </div>
+      </div>
+      <div class="wc-nav-row">
+        <button class="wc-btn-back" onclick="goToStep(4)">← Back</button>
+        <button class="wc-btn-next" onclick="goToStep(6)">Continue <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- STEP 6: OPEN NOTE -->
+    <section class="wc-step" id="step6" aria-labelledby="q6">
+      <div class="wc-section-label">Anything else</div>
+      <h2 class="wc-question" id="q6">Is there anything else you'd like to share?</h2>
+      <p class="wc-question-desc">This is a private space for your thoughts. Your words help us understand what support you need. (Optional)</p>
+      <textarea
+        class="wc-textarea"
+        id="openNote"
+        rows="5"
+        placeholder="Write anything on your mind — about your week, your studies, how you're really feeling..."
+        aria-label="Open notes field"
+      ></textarea>
+      <div class="wc-nav-row">
+        <button class="wc-btn-back" onclick="goToStep(5)">← Back</button>
+        <button class="wc-btn-next" onclick="submitCheckin()">See my results <span class="btn-arrow" aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="wc-step" id="stepResult" aria-live="polite" aria-labelledby="resultHeading">
+
+      <div class="wc-crisis-banner" id="crisisBanner" role="alert">
+        <div class="wc-crisis-title">⚠ Immediate support is available</div>
+        <div class="wc-crisis-text">
+          You indicated you may be having thoughts of harm. Please reach out right away.<br><br>
+          <strong>USIU Counselling:</strong> +254 730 116 000<br>
+          Visit <strong>Student Services, Block C</strong> — walk-ins welcome<br>
+          <strong>Kenya Crisis Line:</strong> 0800 720 560 (free, 24/7)
+        </div>
+      </div>
+
+      <div class="wc-wellness-score">
+        <div class="wc-score-label">Your wellness score</div>
+        <div class="wc-score-number" id="scoreNumber" aria-live="polite">—</div>
+        <div class="wc-score-status" id="scoreStatus">Calculating...</div>
+        <div class="wc-score-bar-wrap" aria-hidden="true">
+          <div class="wc-score-bar" id="scoreBar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div id="resultCards" role="list"></div>
+
+      <hr class="wc-divider" />
+
+      <p class="wc-footer-note">
+        Your check-in is completely confidential and is not stored without your consent.
+        To speak with a counsellor, visit <strong>Student Services, Block C</strong>
+        or call <strong>+254 730 116 000</strong>.
+      </p>
+
+      <a class="wc-resources-btn" href="https://counselling.usiu.ac.ke/" target="_blank" rel="noopener noreferrer">
+        🌐 &nbsp;Visit USIU Counselling Services
+      </a>
+      <button class="wc-restart-btn" onclick="restartCheckin()">↺ Start a new check-in</button>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
